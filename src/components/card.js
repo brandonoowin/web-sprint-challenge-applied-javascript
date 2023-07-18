@@ -32,7 +32,7 @@ const Card = (article) => {
    
    img.src = article.authorPhoto;
    authorName.textContent = article.authorName;
-   headline.textContext = article.headline; 
+   headline.textContent = article.headline; 
 
    card.appendChild(headline)
    card.appendChild(author);
@@ -44,6 +44,7 @@ const Card = (article) => {
     console.log(article.headline)
    })
 
+   console.log(article);
    return card;
 }
 
@@ -65,7 +66,7 @@ const cardAppender = (selector) => {
   .then(res => {
     const selectedChoice = document.querySelector(selector);
     const articles = res.data.articles;
-    console.log(articles)
+    // console.log(articles)
     for (let key in articles) {
       const articleArray = articles[key];
       articleArray.forEach(article => {

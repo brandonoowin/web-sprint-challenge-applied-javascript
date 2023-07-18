@@ -50,6 +50,8 @@ const Card = (article) => {
 
 
 
+
+
 const cardAppender = (selector) => {
   // TASK 6
   // ---------------------
@@ -64,9 +66,19 @@ const cardAppender = (selector) => {
     const selectedChoice = document.querySelector(selector);
     const articles = res.data.articles;
     console.log(articles)
-    for (let i = 0; i < articles.length; i++) {
-      selectedChoice.appendChild(Card(articles[i]))
+    for (let key in articles) {
+      const articleArray = articles[key];
+      articleArray.forEach(article => {
+        const card = Card(article);
+        selectedChoice.appendChild(card);
+      });
     }
+
+    // for (let i = 0; i < articles.length; i++) {
+    //   selectedChoice.appendChild(Card(articles[i]))
+    //   console.log(articles);
+    //   console.log(articles[i]);
+    // }
   })
   .catch((err) => {
     console.log(err);

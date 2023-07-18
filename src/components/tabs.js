@@ -42,10 +42,12 @@ const tabsAppender = (selector) => {
 
 axios.get(`http://localhost:5001/api/topics`) 
   .then((res) => {
-    const tabSelector = document.querySelector(selector);
-    const resData = res.data
-    const createTabs = Tabs(resData);
-    tabSelector.appendChild(createTabs);
+    const cssSelector = document.querySelector(selector);
+    const topicData = res.data
+    for (let i = 0; i < topicData.length; i++) {
+      cssSelector.appendChild(Tabs(topicData[i]))
+    }
+    console.log(topicData);
   })
   .catch((err) => {
     console.log(err);

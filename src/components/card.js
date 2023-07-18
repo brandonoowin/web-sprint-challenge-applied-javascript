@@ -63,6 +63,7 @@ const cardAppender = (selector) => {
   .then(res => {
     const selectedChoice = document.querySelector(selector);
     const articles = res.data.articles;
+    console.log(articles)
     for (let i = 0; i < articles.length; i++) {
       selectedChoice.appendChild(Card(articles[i]))
     }
